@@ -217,7 +217,7 @@ console.log(brandsbydate)
 // The p90 value (90th percentile) is the lower value expected to be exceeded in 90% of the products
 
 
-
+// Didn't understand
 
 
 /**
@@ -292,20 +292,57 @@ const COTELE_PARIS = [
 // // 1. Log if we have new products only (true or false)
 // // A new product is a product `released` less than 2 weeks.
 
+console.log('Passage à Cotele Paris')
+console.log('Nouveaux élèments:')
+var diff
+var compt = 0;
+
+COTELE_PARIS.forEach(element => {
+  diff = ((new Date(element.released)) - (Date.now()) / 1000*3600*24 )
+  if(diff < 14){
+    compt += 1
+    // console.log(element.name)
+  }
+});
+
+if(compt == COTELE_PARIS.length)
+{
+  console.log(true)
+}
 
 // 🎯 TODO: Reasonable price
 // // 1. Log if coteleparis is a reasonable price shop (true or false)
 // // A reasonable price if all the products are less than 100€
 
+console.log('Reasonable price shop or not')
+var reason = true;
+
+COTELE_PARIS.forEach(element => {
+  if(element.price > 100){
+    reason = false;
+  }
+});
+
+console.log(reason)
 
 // 🎯 TODO: Find a specific product
 // 1. Find the product with the uuid `b56c6d88-749a-5b4c-b571-e5b5c6483131`
 // 2. Log the product
+console.log('Find element with uuid')
 
+COTELE_PARIS.forEach(element => {
+  if(element.uuid == `b56c6d88-749a-5b4c-b571-e5b5c6483131`){
+    console.log(element.name)
+  }
+});
 
 // 🎯 TODO: Delete a specific product
 // 1. Delete the product with the uuid `b56c6d88-749a-5b4c-b571-e5b5c6483131`
 // 2. Log the new list of product
+
+var filtered = COTELE_PARIS.filter(elem => elem.uuid != 'b56c6d88-749a-5b4c-b571-e5b5c6483131');
+console.log(filtered);
+
 
 // 🎯 TODO: Save the favorite product
 let blueJacket = {
@@ -331,7 +368,7 @@ blueJacket = {
 // 3. Update `jacket` property with `favorite` to true WITHOUT changing blueJacket properties
 
 
-
+// did'nt understand
 
 
 /**
