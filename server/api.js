@@ -16,16 +16,8 @@ app.use(helmet());
 app.options('*', cors());
 
 app.get('/', (request, response) => {
-  response.send({'ack': true});
+  response.send({'salut': true});
 });
-
-
-
-app.get('/products/:id', async (request, response) => {
-  const result = await db.find({'_id': `${request.params.id}`});
-  response.send(result);
-});
-
 
 
 app.get('/products/search', async (request, response) => {
@@ -78,6 +70,14 @@ app.get('/products/search', async (request, response) => {
   const result = await db.find();
   return response.send(result) 
 });
+
+
+app.get('/products/:id', async (request, response) => {
+  console.log('/id')
+  const result = await db.find({'_id': `${request.params.id}`});
+  response.send(result);
+});
+
 
 
 app.listen(PORT);

@@ -60,6 +60,8 @@ module.exports.insert = async products => {
  * @param  {Array}  query
  * @return {Array}
  */
+
+
 module.exports.find = async query => {
   try {
     const db = await getDB();
@@ -72,6 +74,7 @@ module.exports.find = async query => {
     return null;
   }
 };
+
 
 /**
  * Close the connection
