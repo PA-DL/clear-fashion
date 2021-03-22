@@ -1,7 +1,7 @@
 const cors = require('cors');
 const express = require('express');
 const helmet = require('helmet');
-const { Db } = require('mongodb');
+const db = require('./db/index');
 
 const PORT = 8092;
 
