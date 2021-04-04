@@ -76,6 +76,7 @@ module.exports.find = async query => {
 };
 
 
+
 /**
  * Close the connection
  */

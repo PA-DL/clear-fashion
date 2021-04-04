@@ -19,6 +19,39 @@ app.get('/', (request, response) => {
   response.send({'salut': true});
 });
 
+app.get('/products', async(request, response) => {
+	let page = parseInt(request.query.page);
+  let size = parseInt(request.query.size);
+  let debut = parseInt((page-1)*size);
+
+	const result = await db.find({});
+	let prod =[];	
+	try{
+		if(page==null)
+		{
+			page=1;
+		}
+		if(size==null)
+		{
+			size=12;
+		}
+		for(i=debut; i< debut+size;i++){
+
+			if(result[i] != null){
+ 				prod.push(result[i]);
+ 			}
+ 		}
+
+		response.send({"page" :true,"success" :true, "data" : { "meta" :{"currentPage":page, "pageSize":size, "pageCount":prod.length, "count":result.length}, "result":prod}});
+		//response.send({'a': prod});
+	}catch(e){
+		response.send(e);
+	}
+
+})
+
+
+
 
 app.get('/products/search', async (request, response) => {
   let limit = request.query.limit;
