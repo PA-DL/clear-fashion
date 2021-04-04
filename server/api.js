@@ -47,7 +47,6 @@ app.get('/products', async(request, response) => {
 	}catch(e){
 		response.send(e);
 	}
-
 })
 
 
